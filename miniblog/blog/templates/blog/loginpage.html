@@ -1,0 +1,14 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block content %}
+<div class="col-sm-10 mt-3">
+    <h1 class="alert alert-success">Login</h1>
+    <form action="" method="post" novalidate>
+        {% csrf_token %}
+        {% for fm in form %}
+        {{fm.label_tag}} {{fm}} {{fm.errors|striptags}} <br>
+        {% endfor %}
+        <input type="submit" class="btn btn-success" value="Login">
+    </form>
+</div>
+{% endblock content %}

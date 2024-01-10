@@ -1,0 +1,43 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+<div class="col-sm-10 mt-3">
+    <h1 class="alert alert-success">Dashboard</h1>
+    <a href="{% url 'addpost' %}" class="btn btn-danger mt-1">Add Post</a>
+    <form action="" method="get" class="d-inline">
+        <input type="search" placeholder="Search" class="form-control w-25 d-inline" name="search">
+        <input type="submit" class="btn btn-success">
+    </form>
+    <h3 class="alert alert-info mt-3">Show Post Information</h3>
+
+    {% if post_data %}
+    <table class="table text-white">
+        <thead>
+            <tr>
+                <th scope="col" style="width: 5%;">ID</th>
+                <th scope="col" style="width: 25%;">Title</th>
+                <th scope="col" style="width: 55%;">Description</th>
+                <th scope="col" style="width: 15%;">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pdata in post_data %}
+            <tr>
+                <th scope="row">{{pdata.id}}</th>
+                <td>{{pdata.title}}</td>
+                <td>{{pdata.description}}</td>
+                <td>
+                    <a href="" class="btn btn-warning">Edit</a>
+                    <form action="" method="post" class="d-inline">
+                        {% csrf_token %}
+                        <input type="submit" class="btn btn-danger" value="Delete">
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <h2 class="alert alert-secondary">NO POST</h2>
+    {% endif %}
+</div>
+{% endblock content%}

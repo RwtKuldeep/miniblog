@@ -1,0 +1,19 @@
+/* body{
+    background-color: rgb(82, 75, 75);
+} */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.form-control {
+  background-color: rgb(218, 227, 227);
+}
+
+/* .jumbo-color{
+} */
+
+#box {
+  background-color: rgb(210, 221, 230);
+  border: 2px solid red;
+}
